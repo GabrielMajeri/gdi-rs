@@ -2,6 +2,23 @@
 name = "gdi"
 version = "0.1.0"
 authors = ["Gabriel Majeri <gabriel.majeri6@gmail.com>"]
+description = "Object-oriented wrapper around the Windows Graphics Device Interface API."
+repository = "https://github.com/GuildMasterInfinite/gdi-rs"
+readme = "README.md"
+keywords = ["gdi", "windows", "graphics", "gui"]
+categories = ["rendering::graphics-api", "gui", "os::windows-apis"]
+license = "Apache-2.0/MIT"
+is-it-maintained-issue-resolution = { repository = "https://github.com/GuildMasterInfinite/gdi-rs" }
+is-it-maintained-open-issues = { repository = "https://github.com/GuildMasterInfinite/gdi-rs" }
+
+exclude = [
+	# Only needed when developing.
+	".editorconfig",
+	"docs/**"
+]
+
+[badges]
+appveyor = { repository = "https://ci.appveyor.com/project/GuildMasterInfinite/gdi-rs" }
 
 [target.'cfg(windows)'.dependencies]
 # TODO: once the main `winapi` repo merges the `wingdi` changes, start using it.
