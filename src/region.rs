@@ -29,23 +29,6 @@ impl Region {
 		Region(handle)
 	}
 
-	/// Combines to regions by uniting their areas.
-	pub fn union(&self, other: &Region) -> Self {
-		let output = Self::empty_region();
-		let result = unsafe {
-			wingdi::CombineRgn(
-				output.0,
-				self.0,
-				other.0,
-				wingdi::RGN_OR
-			)
-		};
-
-		assert_ne!(result, wingdi::ERROR);
-
-		output
-	}
-
 	/// Fills a region by using the specified brush.
 	pub fn fill(&self, ctx: &DeviceContext, brush: &Brush) {
 		let result = unsafe {
@@ -58,11 +41,27 @@ impl Region {
 
 		assert_ne!(result, 0);
 	}
+
+	fn combine(&self, other: &Region, operation: i32) -> Self {
+		let output = Self::empty_region();
+		let result = unsafe {
+			wingdi::CombineRgn(
+				output.0,
+				self.0,
+				other.0,
+				operation
+			)
+		};
+
+		assert_ne!(result, wingdi::ERROR);
+
+		output
+	}
 }
 
 impl ops::Add for Region {
 	type Output = Region;
 	fn add(self, rhs: Region) -> Region {
-		self.union(&rhs)
+		self.combine(&rhs, wingdi::RGN_OR)
 	}
 }
