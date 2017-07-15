@@ -1,0 +1,12 @@
+[package]
+name = "gdi"
+version = "0.1.0"
+authors = ["Gabriel Majeri <gabriel.majeri6@gmail.com>"]
+
+[target.'cfg(windows)'.dependencies]
+# TODO: once the main `winapi` repo merges the `wingdi` changes, start using it.
+winapi = { git = "https://github.com/GuildMasterInfinite/winapi-rs", branch = "dev", features = ["wingdi", "winuser"] }
+windows-utils = { git = "https://github.com/GuildMasterInfinite/windows-utils-rs" }
+
+[target.'cfg(windows)'.dev-dependencies]
+winit = "*"
