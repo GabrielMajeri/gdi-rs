@@ -38,6 +38,7 @@ mod tests {
 	use super::*;
 
 	#[test]
+	#[ignore]
 	fn create_window() {
 		use std::mem;
 
