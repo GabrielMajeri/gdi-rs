@@ -8,9 +8,6 @@ use winapi::um::{wingdi, winuser};
 
 extern crate windows_utils;
 
-#[cfg(test)]
-extern crate winit;
-
 mod device_context;
 pub use self::device_context::DeviceContext;
 
