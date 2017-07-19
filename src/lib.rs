@@ -11,6 +11,8 @@ extern crate windows_utils;
 mod device_context;
 pub use self::device_context::DeviceContext;
 
+pub mod batch;
+
 mod object;
 pub use self::object::Object;
 
