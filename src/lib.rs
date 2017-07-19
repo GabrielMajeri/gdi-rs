@@ -8,7 +8,7 @@ use winapi::um::{wingdi, winuser};
 
 extern crate windows_utils;
 
-mod device_context;
+pub mod device_context;
 pub use self::device_context::DeviceContext;
 
 pub mod batch;
