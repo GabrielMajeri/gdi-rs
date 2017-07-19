@@ -1,4 +1,10 @@
 //! Object-oriented wrapper for the Windows GDI API.
+//!
+//! This crate is useful for creating static 2D graphics on Windows computers.
+//!
+//! If you're interested in creating high-performance graphical applications, such
+//! as games or CAD software, you should use something like [Piston](http://www.piston.rs/),
+//! which uses high-performance graphics APIs, such as DirectX.
 
 #![cfg(windows)]
 #![deny(warnings, missing_docs)]
