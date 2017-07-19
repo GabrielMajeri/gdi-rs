@@ -1,5 +1,6 @@
 //! Object-oriented wrapper for the Windows GDI API.
 
+#![cfg(windows)]
 #![deny(warnings, missing_docs)]
 
 extern crate winapi;
