@@ -10,11 +10,14 @@ pub struct Region(HRGN);
 impl Region {
 	/// Returns a null-sized region, centered around the origin.
 	pub fn empty_region() -> Self {
-		Self::from_rectangle(Rectangle::new(0, 0, 0, 0))
+		Self::from_rectangle((0, 0, 0, 0))
 	}
 
 	/// Creates a rectangular region.
-	pub fn from_rectangle(rect: Rectangle) -> Self {
+	pub fn from_rectangle<R>(rect: R) -> Self
+		where R: Into<Rectangle> {
+		let rect = rect.into();
+
 		let handle = unsafe {
 			wingdi::CreateRectRgn(
 				rect.left,
@@ -61,7 +64,13 @@ impl Region {
 
 impl ops::Add for Region {
 	type Output = Region;
-	fn add(self, rhs: Region) -> Region {
+	fn add(self, rhs: Region) -> Self {
 		self.combine(&rhs, wingdi::RGN_OR)
+	}
+}
+
+impl<R: Into<Rectangle>> From<R> for Region {
+	fn from(rect: R) -> Self {
+		Self::from_rectangle(rect)
 	}
 }

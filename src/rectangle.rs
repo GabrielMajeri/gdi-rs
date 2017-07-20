@@ -22,3 +22,9 @@ impl Rectangle {
 		}
 	}
 }
+
+impl From<(i32, i32, i32, i32)> for Rectangle {
+	fn from(coords: (i32, i32, i32, i32)) -> Self {
+		Rectangle::new(coords.0, coords.1, coords.2, coords.3)
+	}
+}

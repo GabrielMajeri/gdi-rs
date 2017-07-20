@@ -27,16 +27,15 @@ fn main() {
 	{
 		let dc = DeviceContext::new(hwnd);
 
-		let scrn = Region::from_rectangle(Rectangle::new(0, 0, 800, 600));
+		let scrn = Region::from((0, 0, 800, 600));
 		let background_brush = Brush::from_color(Color::from_rgb(0, 50, 120));
 
 		scrn.fill(&dc, &background_brush);
 
 		let color_brush = Brush::from_color(Color::from_rgb(50, 120, 220));
-		let rgn = Region::from_rectangle(Rectangle::new(50, 20, 400, 300));
+		let rgn = Region::from((50, 20, 400, 300));
 
-		let rgn = rgn + Region::from_rectangle(Rectangle::new(50, 440, 400, 500))
-			+ Region::from_rectangle(Rectangle::new(450, 20, 750, 500));
+		let rgn = rgn + Region::from((50, 440, 400, 500)) + Region::from((450, 20, 750, 500));
 
 		rgn.fill(&dc, &color_brush);
 
