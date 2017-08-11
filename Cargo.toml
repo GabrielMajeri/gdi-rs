@@ -8,8 +8,6 @@ readme = "README.md"
 keywords = ["gdi", "windows", "graphics", "gui"]
 categories = ["rendering::graphics-api", "gui", "os::windows-apis"]
 license = "Apache-2.0/MIT"
-is-it-maintained-issue-resolution = { repository = "https://github.com/GuildMasterInfinite/gdi-rs" }
-is-it-maintained-open-issues = { repository = "https://github.com/GuildMasterInfinite/gdi-rs" }
 
 exclude = [
 	# Only needed when developing.
@@ -21,8 +19,7 @@ exclude = [
 appveyor = { repository = "https://ci.appveyor.com/project/GuildMasterInfinite/gdi-rs" }
 
 [target.'cfg(windows)'.dependencies]
-# TODO: once the main `winapi` repo merges the `wingdi` changes, start using it.
-winapi = { git = "https://github.com/GuildMasterInfinite/winapi-rs", branch = "dev", features = ["wingdi", "winuser"] }
+winapi = { git = "https://github.com/retep998/winapi-rs", branch = "dev", features = ["wingdi", "winuser"] }
 windows-utils = { git = "https://github.com/GuildMasterInfinite/windows-utils-rs" }
 
 [target.'cfg(windows)'.dev-dependencies]
