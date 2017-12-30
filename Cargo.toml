@@ -19,8 +19,8 @@ exclude = [
 appveyor = { repository = "https://ci.appveyor.com/project/GabrielMajeri/gdi-rs" }
 
 [target.'cfg(windows)'.dependencies]
-winapi = { git = "https://github.com/retep998/winapi-rs", branch = "dev", features = ["wingdi", "winuser"] }
+winapi = { version = "0.3", features = ["wingdi", "winuser"] }
 windows-utils = { git = "https://github.com/GabrielMajeri/windows-utils-rs" }
 
 [target.'cfg(windows)'.dev-dependencies]
-winit = "*"
+winit = "0.10"
